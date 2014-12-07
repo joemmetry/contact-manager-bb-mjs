@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" data-framework="backbonejs">
+	<head>
+		<meta charset="utf-8">
+		<title>Backbone.js • Contact Manager</title>
+		<link rel="stylesheet" href="src/css/graphui.css">
+		<link rel="stylesheet" href="src/css/contactmgr.css">
+	</head>
+	<body id="cmapp">
+		<div id="pageContainer">
+			<div id="pageHeader" class="uiHeaderLight">
+				<div class="containerMain">
+					<span><strong><a href="">Contact Manager</a></strong></span>
+					<div id="contactSearcher"></div>
+		    	</div>
+			</div>
+			<div id="pageBody">
+				<div class="containerMain">
+					<div id="contactForm"></div>			
+					<div id="contactList" class="pull-right"></div>
+					<div id="contactResult" class="pull-right"></div>
+				</div>
+			</div>
+		</div>
+		<script type="text/template" id="temp-searcher">
+			<form id="contactSearchForm" method="post" action="">
+	            <span><input placeholder="Search for name, email, or phone" type="text" name="q" class="span6"></span>
+	        </form>
+		</script>
+		<script type="text/template" id="temp-contact-adder">         
+			<form id="contactAddForm" method="post" action="">
+	            <div class="uiPageHeader"><h3>Add Contact</h3></div>
+	            <div><span><input placeholder="Last Name" type="text" name="lname" class="span3"></span><span><input placeholder="First Name" type="text" name="fname" class="span3"></span></div>
+	            <div><span><input placeholder="example_email@domain.com" type="text" name="email" class="span6"></span></div>
+	            <div><span><input placeholder="09123456789" type="text" name="phone" maxlength="11" class="span6"></span></div>
+	            <div><button id="addC" type="submit" class="pull-right uiButtonLarge uiButtonDisabled" disabled="disabled"><i class="uiIcon-hl-ok"></i> Add Contact</button></div>
+	        </form>
+	    </script>
+		<script type="text/template" id="temp-contact-editor">
+			<div id="contactEdit">
+	          <form id="contactEditForm" method="post" action="">
+	           	<input type="hidden" value="<%= order %>" name="order" />
+	           	<input type="hidden" value="<%= id %>" name="id" />
+	            <div class="uiPageHeader"><h3>Edit Contact</h3></div>
+	            <div><span><input placeholder="Last Name" type="text" name="lname" value="<%= lname %>" class="span3"></span><span><input placeholder="First Name" type="text" name="fname" value="<%= fname %>" class="span3"></span></div>
+	            <div><span><input placeholder="example_email@domain.com" type="text" name="email" value="<%= email %>" class="span6"></span></div>
+	            <div><span><input placeholder="09123456789" type="text" name="phone" maxlength="11" value="<%= phone %>" class="span6"></span></div>
+	            <div class="pull-right">
+	            	<button type="button" class="uiButtonLarge back" ><i class="uiIcon-hl-chevron-left"></i> Back</button>
+	            	<button id="updateC" type="submit" class="uiButtonLarge uiButtonDisabled" disabled="disabled"><i class="uiIcon-hl-ok"></i> Save</button>
+	            </div>
+	          </form>
+	        </div>
+		</script>
+		<script type="text/template" id="temp-contact-tables">			
+	          <div class="uiPageHeader"><h3>Contact List</h3></div>
+	          <div id="ctitle">
+	            <div class="ctitle-row">
+	              <div class="clist-col-1">Name</div>
+	              <div class="clist-col-2">Email</div>
+	              <div class="clist-col-3">Phone</div>
+	            </div>
+	          </div>
+	          <ul id="contact-list"></ul>
+	          <br>
+	          <div><p>Use the search bar above to find specific contacts.</p></div>
+	    </script>
+		<script type="text/template" id="temp-contact-list">
+			<div class="clist-row" id="<%= order %>">
+	            <div class="clist-col-1">
+	            	<div class="uiDropdown uiDropdown-button">
+	            		<a class="uiDropdown-selected" href="#">
+	            			<strong><%= lname %>,  <%= fname %> <i class="uiIcon-hl-chevron-down"></i></strong>
+	            		</a>
+	            		<ul class="uiDropdown-menu" role="menu">
+	            			<li><a class="editU" data-title="Edit <%= fname %>" href="#/edit/<%= order %>" data-href="#/edit/<%= order %>"><i class="uiIcon-hl-pencil"></i> Edit <%= fname %></a></li>
+	            			<li><a class="remU" href="#"><i class="uiIcon-hl-remove"></i> Delete <%= fname %></a></li>
+	            		</ul>
+	            	</div>
+	            </div>
+	            <div class="clist-col-2"><%= email %></div> 
+	            <div class="clist-col-3"><%= phone %></div> 
+	        </div>
+		</script>
+		<script src="src/js/plugins/jquery.js"></script>
+		<script src="src/js/plugins/graphui-dropdown.js"></script>
+		<script src="src/js/plugins/underscore.js"></script>
+		<script src="src/js/plugins/backbone.js"></script>
+		<script src="src/js/plugins/backbone.localStorage.js"></script>
+		<script src="src/js/plugins/backbone.marionette.js"></script>
+		<script src="src/js/app/ContactManager.js"></script>
+		<script src="src/js/app/ContactManager.Layout.js"></script>
+		<script src="src/js/app/ContactManager.Router.js"></script>
+		<script src="src/js/app/ContactManager.Views.js"></script>
+		<script src="src/js/app/ContactManager.ModelCollection.js"></script>
+		<script>
+			$(function () {
+				ContactManager.start();
+			});
+		</script>
+	</body>
+</html>
