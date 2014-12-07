@@ -1,0 +1,54 @@
+#HomeBg {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	position: fixed;
+}
+[class*=err] {color:#fff;}
+.welTitle, .errTitle {font-size: 200px;}
+.welMsg, .errMsg {font-size: 24px;}
+.welFooter, .errFooter {font-size: 16px;}
+.copy {color:#FFF;font-weight:900;font-size: 18px;}
+.welFooter .copy {color:#222}
+p {text-align: justify;	}
+
+.wel {background:url('/src/wall1.jpg');background-color:rgb(197,214,182);}
+.error {background:url('/src/wall2.jpg');background-color:rgb(217,94,27);}
+
+input[type="text"], input[type="text"]:focus {border-color:transparent; border-bottom: 1px #66AFE9 solid;}
+input.span3 {width:180px;}
+input.span6 {width:360px;}
+#pageHeader > .containerMain > div {display: inline-block;margin-right: 10px;}
+#pageHeader input {background: none}
+#pageHeader input:focus {background: #fff;}
+#contactSearcher {width: 400px;}
+#contactSearcher > div {height: 40px}
+
+#contactSearcher > div,#contactSearcher > div > form  {padding: 0;margin: 0}
+#pageHeader > .containerMain {margin-bottom: 0; margin-top:0;}
+.containerMain {width:980px;margin:0 auto;}
+#pageBody > .containerMain > div {display: inline-block; vertical-align: top;margin-right: 10px}
+.containerMain > #contactSearcher {margin: 0}
+.containerMain > #contactAdder {width: 360px;}
+.containerMain > #contactList {width: 500px;}
+.containerMain > #contactResult {display: none;}
+#clist, #contact-list {display: table;border:1px #a8a8a8 solid;border-top:0;}
+#contact-list:empty{display: none}
+.searchNone{width:100%;text-align: center;padding: 4px;}
+#ctitle {border:1px #a8a8a8 solid;display: block;}
+#clist > .clist-row, #contact-list > li > .clist-row {display: block;}
+
+#contact-list > li{width:498px;list-style: none;border-bottom: 1px solid #a8a8a8;line-height: inherit;}
+#contact-list > li:last-child {border-bottom: 0;}
+#contact-list > li:hover{background: #e8e8e8}
+#contact-list > li > .clist-row > [class*="clist-col"]  {display: table-cell;padding:4px;vertical-align: top;word-break:break-all;}
+#ctitle > .ctitle-row > [class*="clist-col"]{display: table-cell;border-top:0;border-left:0;padding: 6px;vertical-align: top;word-break:break-all;}
+.clist-col-1 {min-width:150px;max-width:150px;}
+.clist-col-2 {min-width:190px;max-width:190px;border-right:1px solid #a8a8a8;border-left:1px solid #a8a8a8;}
+.clist-col-3 {min-width:140px;max-width:140px;}
+#ctitle > .ctitle-row > .clist-col-1 {min-width: 150px;max-width: 150px;}
+#ctitle > .ctitle-row > .clist-col-2 {border-left:1px solid #a8a8a8;}
